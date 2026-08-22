@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arjun Raj Singh | Portfolio</title>
+    
+    <link rel="icon" type="image/png" href="a3.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <style>
+        body { background-color: #ffffff; color: #334155; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        .border-base { border-color: #f1f5f9; }
+        
+        .nav-link.active { color: #2563eb; font-weight: 900; border-bottom: 2px solid #2563eb; }
+
+        #scrollTop { display: none; position: fixed; bottom: 20px; right: 20px; z-index: 99; background: #2563eb; color: white; padding: 12px; border-radius: 50%; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: 0.3s; }
+        
+        .terminal-bg { background-color: #0f172a; border: 1px solid #1e293b; }
+        .terminal-text { color: #94a3b8; font-size: 11px; line-height: 1.6; }
+        
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); padding: 40px; cursor: zoom-out; }
+        .modal-content { margin: auto; display: block; max-width: 90%; max-height: 90%; object-fit: contain; }
+        .img-magnify { cursor: zoom-in; transition: 0.3s; }
+
+        .swiper { width: 100%; height: 600px; border-radius: 1rem; background: #f8fafc; overflow: hidden; }
+        .swiper-slide { position: relative; display: flex; align-items: center; justify-content: center; }
+        .swiper-slide img { width: 100%; height: 100%; object-fit: contain; }
+        
+        .slide-caption { 
+            position: absolute; bottom: 0; left: 0; right: 0; 
+            padding: 3rem 1.5rem 1.5rem; 
+            background: linear-gradient(transparent, rgba(15, 23, 42, 0.95)); 
+            color: white; 
+        }
+
+        .video-container { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 1rem; overflow: hidden; background: #000; border: 1px solid #f1f5f9; }
+        .bg-gradient { background: linear-gradient(135deg, #eff6ff 0%, #ecfdf5 100%); }
+        
+        .img-card { 
+            margin-top: 1.5rem;
+            border: 1px solid #f1f5f9; 
+            border-radius: 0.75rem; 
+            overflow: hidden;
+            background: #f8fafc;
+        }
+        .img-card img { width: 100%; cursor: zoom-in; display: block; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div id="scrollTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i class="fa-solid fa-arrow-up"></i>
+    </div>
+
+    <nav class="fixed top-0 w-full z-50 glass border-b border-base">
+        <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex flex-col">
+                <span class="text-lg font-extrabold tracking-tight text-slate-900">Arjun Raj Singh</span>
+                <div class="flex gap-4 items-center">
+                    <a href="https://www.linkedin.com/in/arjun-singh-8134133b7/" target="_blank" class="text-[11px] text-blue-600 font-bold uppercase tracking-widest flex items-center gap-1">
+                        <i class="fa-brands fa-linkedin"></i> LinkedIn <i class="fa-solid fa-universal-access"></i>
+                    </a>
+                    <a href="resume.pdf" target="_blank" class="text-[11px] text-slate-500 font-bold uppercase tracking-widest flex items-center gap-1">
+                        <i class="fa-solid fa-file-pdf"></i> Resume <i class="fa-solid fa-universal-access"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hidden md:flex space-x-8 text-[11px] font-bold uppercase tracking-widest text-slate-500">
+                <a href="#cpu" class="nav-link transition py-2">8-Bit CPU</a>
+                <a href="#fpga" class="nav-link transition py-2">FPGA Port</a>
+                <a href="#snake" class="nav-link transition py-2">Snake Console</a>
+                <a href="#journey" class="nav-link transition py-2">Journey</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-40 pb-32 px-6 bg-gradient">
+        <div class="max-w-3xl mx-auto">
+            <h1 class="text-5xl md:text-6xl font-extrabold text-slate-900 mb-6 tracking-tighter">
+                Hardware from the <br><span class="text-blue-600">Gate Level.</span>
+            </h1>
+            <p class="text-lg text-slate-600 leading-relaxed font-medium">
+                I started in high-level software, but sought to understand the abstracted layers beneath. My work explores the transition from Boolean algebra to fully functional, discrete-logic computer architecture and synthesizable RTL.
+            </p>
+        </div>
+    </section>
+
+    <section class="py-12 px-6 bg-white border-b border-base">
+        <div class="max-w-5xl mx-auto">
+            <div class="bg-slate-50 rounded-2xl p-8 border border-base flex flex-col md:flex-row gap-12">
+                <div class="flex-1">
+                    <h2 class="text-xs font-black text-blue-600 uppercase tracking-[0.2em] mb-6 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span> Now Exploring
+                    </h2>
+                    <div class="space-y-8">
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm mono">01 // Advanced SystemVerilog Mastery</h4>
+                            <p class="text-xs text-slate-500 mt-1">Refining RTL design practices, structured digital design methodologies, and mastering modern SystemVerilog workflows.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm mono">02 // Custom 4-Stage Pipelined Architecture</h4>
+                            <p class="text-xs text-slate-500 mt-1">Designing a simple, clean, custom 4-stage pipelined processor from scratch to explore pipelined datapath fundamentals.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-80 flex flex-col">
+                    <div class="terminal-bg rounded-lg shadow-xl overflow-hidden flex-1 flex flex-col">
+                        <div class="p-3 border-b border-slate-800 flex gap-1.5">
+                            <div class="w-2 h-2 rounded-full bg-red-500/50"></div>
+                            <div class="w-2 h-2 rounded-full bg-yellow-500/50"></div>
+                            <div class="w-2 h-2 rounded-full bg-green-500/50"></div>
+                        </div>
+                        <div class="p-4 terminal-text mono">
+                            <p class="text-blue-400 mb-2"># Active_Log</p>
+                            <p class="text-yellow-500 mb-1">[>] Advanced SystemVerilog</p>
+                            <p class="text-yellow-500 mb-1">[>] Design Simple 4-Stage Core</p>
+                            <p class="text-emerald-500 line-through opacity-50">[OK] FPGA SoC (CPU, RAM, ROM, I/O)</p>
+                            <p class="text-emerald-500 line-through opacity-50">[OK] Executed Snake Binary on FPGA</p>
+                            <p class="text-emerald-500 line-through opacity-50">[OK] Learn Verilog Foundations</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cpu" class="py-20 px-6 border-b border-base scroll-mt-20">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                <div class="max-w-2xl">
+                    <h2 class="text-xs font-black text-emerald-600 uppercase tracking-[0.2em] mb-4">Flagship Project</h2>
+                    <h3 class="text-4xl font-bold text-slate-900 mb-4">8-Bit Microcoded CPU</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        A custom CISC architecture built from discrete 74-series logic running reliably at 250 kHz. Features a 48-bit microcode control unit and a star-topology power grid.
+                    </p>
+                </div>
+                <a href="https://github.com/0nonymous/Breadboard-CPU-Computer-System" target="_blank" class="px-6 py-3 bg-slate-900 text-white text-[11px] font-black uppercase tracking-widest rounded-full hover:opacity-80 transition shadow-lg flex items-center gap-2">
+                    <i class="fa-brands fa-github text-base"></i> View on GitHub →
+                </a>
+            </div>
+
+            <div class="video-container shadow-2xl mb-8">
+                <video controls class="w-full h-full">
+                    <source src="snake_video_cpu.mp4" type="video/mp4">
+                </video>
+                <div class="absolute top-4 left-4 glass px-3 py-1 rounded">
+                    <span class="text-[9px] font-bold uppercase tracking-widest text-slate-900">Breadboard CPU: Program Run (250 kHz)</span>
+                </div>
+            </div>
+
+            <div class="swiper mySwiper shadow-xl">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="cpu.jpg" class="img-magnify" alt="CPU Computer System" onclick="magnify(this)">
+                        <div class="slide-caption">
+                            <h4 class="font-bold text-sm uppercase mono tracking-wider">CPU Computer System</h4>
+                            <p class="text-xs opacity-80">Full system view across 40+ breadboards operating at 250 kHz.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="wide.jpg" class="img-magnify" alt="Wide Angle View" onclick="magnify(this)">
+                        <div class="slide-caption">
+                            <h4 class="font-bold text-sm uppercase mono tracking-wider">Wide Angle View</h4>
+                            <p class="text-xs opacity-80">Breadboards and peripheral integration.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="terminal.jpg" class="img-magnify" alt="VGA Output" onclick="magnify(this)">
+                        <div class="slide-caption">
+                            <h4 class="font-bold text-sm uppercase mono tracking-wider">VGA Output</h4>
+                            <p class="text-xs opacity-80">Real-time rendering from the machine code monitor.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="signals.jpg" class="img-magnify" alt="Control Signals" onclick="magnify(this)">
+                        <div class="slide-caption">
+                            <h4 class="font-bold text-sm uppercase mono tracking-wider">Control Signals</h4>
+                            <p class="text-xs opacity-80">Managing approximately 48 distinct microcode pathways.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="CPU_Block_Diagram.jpg" class="img-magnify" alt="System Architecture" onclick="magnify(this)">
+                        <div class="slide-caption">
+                            <h4 class="font-bold text-sm uppercase mono tracking-wider">System Architecture</h4>
+                            <p class="text-xs opacity-80">Block diagram of registers, buses, and ALU.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-next" style="color: white"></div>
+                <div class="swiper-button-prev" style="color: white"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="fpga" class="py-20 px-6 border-b border-base scroll-mt-20">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                <div class="max-w-2xl">
+                    <h2 class="text-xs font-black text-blue-600 uppercase tracking-[0.2em] mb-4">Silicon & HDL Implementation</h2>
+                    <h3 class="text-4xl font-bold text-slate-900 mb-4">FPGA SystemVerilog System Port</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Reimplemented the entire custom 8-bit computer system—including the CPU, RAM, ROM, and memory-mapped I/O interfaces—in synthesizable SystemVerilog, successfully executing the exact same Snake machine code binary as the physical breadboards at 250 kHz.
+                    </p>
+                </div>
+                <a href="https://github.com/0nonymous/fpga-cpu" target="_blank" class="px-6 py-3 bg-slate-900 text-white text-[11px] font-black uppercase tracking-widest rounded-full hover:opacity-80 transition shadow-lg flex items-center gap-2">
+                    <i class="fa-brands fa-github text-base"></i> View on GitHub →
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="space-y-4">
+                    <div class="img-card shadow-xl overflow-hidden rounded-xl border border-base bg-white">
+                        <img src="fpga.jpg" class="w-full img-magnify" alt="Elaborated CPU Schematic with RAM and ROM" onclick="magnify(this)">
+                        <div class="p-3 bg-slate-900 text-white flex justify-between items-center">
+                            <p class="text-[10px] mono uppercase tracking-wider">Elaborated CPU Schematic (RAM & ROM Integrated)</p>
+                            <span class="text-[9px] mono text-blue-400">RTL View</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div class="p-6 bg-slate-50 border border-base rounded-2xl space-y-4">
+                        <h4 class="font-bold text-slate-900 text-base mono">Full-System RTL Integration</h4>
+                        <ul class="text-xs text-slate-600 space-y-2 leading-relaxed">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-blue-600 mt-0.5"></i>
+                                <span><strong>Complete System-on-Chip:</strong> Synthesizable RTL integrating the fully elaborated CPU core, microcode sequencer, RAM, ROM, and memory-mapped I/O.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-blue-600 mt-0.5"></i>
+                                <span><strong>100% Binary Compatibility:</strong> Runs the identical compiled Snake game machine code binary and toolchain output as the original breadboard build.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-blue-600 mt-0.5"></i>
+                                <span><strong>Hardware Reliability:</strong> Replaces 40+ breadboards and hundreds of jumper wires with solid, industry-standard programmable silicon while running at the matched 250 kHz clock rate.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="snake" class="py-24 px-6 bg-slate-50/50 scroll-mt-20">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div class="space-y-6">
+                <h3 class="text-3xl font-bold text-slate-900 italic underline decoration-emerald-500 underline-offset-8">Snake Logic Console</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    A zero-software console build using a hardwired Finite State Machine (FSM).
+                </p>
+                <div class="flex gap-4">
+                    <div class="flex-1 p-4 bg-white border border-base rounded-xl shadow-sm text-center">
+                        <p class="text-lg font-black text-slate-900 mono uppercase">SOFTWARE: <span class="text-emerald-600">0%</span></p>
+                    </div>
+                    <div class="flex-1 p-4 bg-white border border-base rounded-xl shadow-sm text-center">
+                        <p class="text-lg font-black text-slate-900 mono uppercase">ABSTRACTION: <span class="text-emerald-600">0%</span></p>
+                    </div>
+                </div>
+                <a href="https://github.com/0nonymous/Logic-Gate-Snake" target="_blank" class="inline-block text-[11px] font-black text-emerald-600 hover:text-blue-600 uppercase tracking-widest transition flex items-center gap-2">
+                    <i class="fa-brands fa-github text-sm text-slate-900"></i> Snake Repository →
+                </a>
+            </div>
+            <div class="space-y-4">
+                <div class="img-card shadow-xl overflow-hidden rounded-xl border border-base bg-white">
+                    <img src="snake_schematic.png" class="w-full img-magnify" onclick="magnify(this)">
+                    <div class="p-3 bg-slate-900 text-white"><p class="text-[10px] mono uppercase tracking-wider">FSM Hardware Schematic</p></div>
+                </div>
+                <div class="video-container shadow-xl">
+                    <video controls class="w-full h-full">
+                        <source src="snake_sim.mp4" type="video/mp4">
+                    </video>
+                    <div class="absolute top-4 left-4 glass px-3 py-1 rounded">
+                        <span class="text-[9px] font-bold uppercase tracking-widest text-emerald-600">FSM Simulation Run</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="journey" class="py-24 px-6 scroll-mt-20">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-sm font-black text-slate-400 uppercase tracking-[0.3em] mb-16 text-center">Evolution of Logic</h2>
+            
+            <div class="space-y-20">
+                <div class="relative pl-10 border-l-2 border-blue-500">
+                    <div class="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-white border-4 border-blue-500"></div>
+                    <span class="text-[10px] mono font-bold text-blue-600 uppercase">Phase 01</span>
+                    <h4 class="text-xl font-bold text-slate-900 mt-2">Software Foundations: Art-Based 3D</h4>
+                    <p class="text-sm text-slate-500 mt-3 mb-6 leading-relaxed">My journey began in pure high-level programming. In this project, I built a 3D engine from scratch using Python Turtle, utilizing classical art perspective techniques rather than standard 3D libraries.</p>
+                    <div class="img-card"><img src="3d.png" onclick="magnify(this)"></div>
+                </div>
+
+                <div class="relative pl-10 border-l-2 border-emerald-500">
+                    <div class="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-white border-4 border-emerald-500"></div>
+                    <span class="text-[10px] mono font-bold text-emerald-600 uppercase">Phase 02</span>
+                    <h4 class="text-xl font-bold text-slate-900 mt-2">Gates & Sequential Memory</h4>
+                    <p class="text-sm text-slate-500 mt-3 mb-6 leading-relaxed">Boolean algebra provided the bridge. I started with simple combinational adders, eventually building toward sequential memory and flip-flops.</p>
+                    <div class="img-card"><img src="adder.jpg" onclick="magnify(this)"></div>
+                </div>
+
+                <div class="relative pl-10 border-l-2 border-yellow-500">
+                    <div class="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-white border-4 border-yellow-500"></div>
+                    <span class="text-[10px] mono font-bold text-yellow-600 uppercase">Phase 03</span>
+                    <h4 class="text-xl font-bold text-slate-900 mt-2">Shared Bus Architecture</h4>
+                    <p class="text-sm text-slate-500 mt-3 mb-6 leading-relaxed">As complexity grew, I developed a shared system bus to organize data flow—creating what I called a "Human-Driven CPU" where I manually toggled instruction steps.</p>
+                    <div class="img-card"><img src="humandriven.png" onclick="magnify(this)"></div>
+                </div>
+
+                <div class="relative pl-10 border-l-2 border-orange-500">
+                    <div class="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-white border-4 border-orange-500"></div>
+                    <span class="text-[10px] mono font-bold text-orange-600 uppercase">Phase 04</span>
+                    <h4 class="text-xl font-bold text-slate-900 mt-2">First CPU: Harvard RISC Prototype</h4>
+                    <p class="text-sm text-slate-500 mt-3 mb-6 leading-relaxed">This prototype featured a hard Harvard split in memory, but I hit architectural walls: insufficient RAM, no subroutine support (SP), and a fixed memory layout. This discovery catalyzed the move to CISC.</p>
+                    <div class="img-card"><img src="harvard_prototype.jpg" onclick="magnify(this)"></div>
+                </div>
+
+                <div class="relative pl-10 border-l-2 border-red-500">
+                    <div class="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-white border-4 border-red-500"></div>
+                    <span class="text-[10px] mono font-bold text-red-600 uppercase">Phase 05</span>
+                    <h4 class="text-xl font-bold text-slate-900 mt-2">Hardware Acceleration</h4>
+                    <p class="text-sm text-slate-500 mt-3 mb-6 leading-relaxed">The Snake Console project shifted focus toward application-specific hardware, optimizing logic for real-time performance without processor overhead.</p>
+                    <div class="img-card"><img src="snake_schematic.png" onclick="magnify(this)"></div>
+                </div>
+
+                <div class="relative pl-10 border-l-2 border-purple-500">
+                    <div class="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-white border-4 border-purple-500"></div>
+                    <span class="text-[10px] mono font-bold text-purple-600 uppercase">Phase 06</span>
+                    <h4 class="text-xl font-bold text-slate-900 mt-2">The CISC Architecture</h4>
+                    <p class="text-sm text-slate-500 mt-3 mb-6 leading-relaxed">A fully programmable 8-bit machine running at 250 kHz. By moving to a <strong>CISC-based microcoded design</strong>, I solved the Phase 04 limitations. This version features a 48-bit control word, Stack Pointer support, and a robust star-topology power grid across 40+ breadboards.</p>
+                    <div class="img-card"><img src="cpu.jpg" onclick="magnify(this)"></div>
+                </div>
+
+                <div class="relative pl-10 border-l-2 border-blue-600">
+                    <div class="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-white border-4 border-blue-600"></div>
+                    <span class="text-[10px] mono font-bold text-blue-600 uppercase">Phase 07</span>
+                    <h4 class="text-xl font-bold text-slate-900 mt-2">Full-System Port: FPGA SystemVerilog SoC</h4>
+                    <p class="text-sm text-slate-500 mt-3 mb-6 leading-relaxed">To transition toward modern design methodologies and eliminate the reliability issues of loose jumper wires across 40+ breadboards, I translated the full computer system—CPU, RAM, ROM, and I/O interfaces—into synthesizable <strong>SystemVerilog</strong> on an FPGA. Running at the matched 250 kHz clock, it successfully executed the exact identical Snake machine code binary.</p>
+                    <div class="img-card"><img src="fpga.jpg" onclick="magnify(this)"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="imageModal" class="modal" onclick="this.style.display='none'">
+        <img class="modal-content" id="modalImg">
+    </div>
+
+    <footer class="py-20 border-t border-base bg-slate-50 text-center">
+        <p class="text-sm font-bold text-slate-900 uppercase tracking-widest">Arjun Raj Singh</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        new Swiper(".mySwiper", {
+            loop: true,
+            navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+            autoplay: { delay: 4000 }
+        });
+
+        function magnify(img) {
+            document.getElementById("imageModal").style.display = "flex";
+            document.getElementById("modalImg").src = img.src;
+        }
+
+        const sections = document.querySelectorAll("section[id]");
+        const navLinks = document.querySelectorAll(".nav-link");
+        const scrollTopBtn = document.getElementById("scrollTop");
+
+        window.onscroll = () => {
+            if (window.pageYOffset > 500) { scrollTopBtn.style.display = "block"; } 
+            else { scrollTopBtn.style.display = "none"; }
+
+            let current = "";
+            sections.forEach((section) => {
+                if (pageYOffset >= section.offsetTop - 100) { current = section.getAttribute("id"); }
+            });
+            navLinks.forEach((link) => {
+                link.classList.remove("active");
+                if (link.getAttribute("href").includes(current)) { link.classList.add("active"); }
+            });
+        };
+    </script>
+</body>
+</html>
