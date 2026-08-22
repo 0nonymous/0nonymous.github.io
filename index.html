@@ -63,8 +63,8 @@
             <div class="flex flex-col">
                 <span class="text-lg font-extrabold tracking-tight text-slate-900">Arjun Raj Singh</span>
                 <div class="flex gap-4 items-center">
-                    <a href="https://www.linkedin.com/in/arjun-singh-8134133b7/" target="_blank" class="text-[11px] text-blue-600 font-bold uppercase tracking-widest flex items-center gap-1">
-                        <i class="fa-brands fa-linkedin"></i> LinkedIn <i class="fa-solid fa-universal-access"></i>
+                    <a href="https://www.linkedin.com/in/arjun-singh-8134133b7/" target="_blank" class="text-[11px] text-blue-600 font-semibold flex items-center gap-1">
+                        <i class="fa-brands fa-linkedin"></i> LinkedIn® <i class="fa-solid fa-universal-access"></i>
                     </a>
                     <a href="resume.pdf" target="_blank" class="text-[11px] text-slate-500 font-bold uppercase tracking-widest flex items-center gap-1">
                         <i class="fa-solid fa-file-pdf"></i> Resume <i class="fa-solid fa-universal-access"></i>
@@ -250,27 +250,33 @@
     <section id="snake" class="py-24 px-6 bg-slate-50/50 scroll-mt-20">
         <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
             <div class="space-y-6">
-                <h3 class="text-3xl font-bold text-slate-900 italic underline decoration-emerald-500 underline-offset-8">Snake Logic Console</h3>
-                <p class="text-slate-600 text-sm leading-relaxed">
-                    A zero-software console build using a hardwired Finite State Machine (FSM).
-                </p>
-                <div class="flex gap-4">
-                    <div class="flex-1 p-4 bg-white border border-base rounded-xl shadow-sm text-center">
-                        <p class="text-lg font-black text-slate-900 mono uppercase">SOFTWARE: <span class="text-emerald-600">0%</span></p>
-                    </div>
-                    <div class="flex-1 p-4 bg-white border border-base rounded-xl shadow-sm text-center">
-                        <p class="text-lg font-black text-slate-900 mono uppercase">ABSTRACTION: <span class="text-emerald-600">0%</span></p>
-                    </div>
+                <div>
+                    <h2 class="text-xs font-black text-emerald-600 uppercase tracking-[0.2em] mb-4">Application-Specific Hardware</h2>
+                    <h3 class="text-4xl font-bold text-slate-900 mb-4">Snake Logic Console</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        A zero-software console build using a hardwired Finite State Machine (FSM).
+                    </p>
                 </div>
+
+                <div class="p-4 bg-white border border-base rounded-xl shadow-sm text-center">
+                    <p class="text-lg font-black text-slate-900 mono uppercase">
+                        SOFTWARE: <span class="text-emerald-600">0%</span>
+                    </p>
+                </div>
+
                 <a href="https://github.com/0nonymous/Logic-Gate-Snake" target="_blank" class="inline-block text-[11px] font-black text-emerald-600 hover:text-blue-600 uppercase tracking-widest transition flex items-center gap-2">
                     <i class="fa-brands fa-github text-sm text-slate-900"></i> Snake Repository →
                 </a>
             </div>
+
             <div class="space-y-4">
                 <div class="img-card shadow-xl overflow-hidden rounded-xl border border-base bg-white">
                     <img src="snake_schematic.png" class="w-full img-magnify" onclick="magnify(this)">
-                    <div class="p-3 bg-slate-900 text-white"><p class="text-[10px] mono uppercase tracking-wider">FSM Hardware Schematic</p></div>
+                    <div class="p-3 bg-slate-900 text-white">
+                        <p class="text-[10px] mono uppercase tracking-wider">FSM Hardware Schematic</p>
+                    </div>
                 </div>
+
                 <div class="video-container shadow-xl">
                     <video controls class="w-full h-full">
                         <source src="snake_sim.mp4" type="video/mp4">
@@ -285,7 +291,10 @@
 
     <section id="journey" class="py-24 px-6 scroll-mt-20">
         <div class="max-w-3xl mx-auto">
-            <h2 class="text-sm font-black text-slate-400 uppercase tracking-[0.3em] mb-16 text-center">Evolution of Logic</h2>
+            <div class="mb-16">
+                <h2 class="text-xs font-black text-blue-600 uppercase tracking-[0.2em] mb-4">Evolution of Logic</h2>
+                <h3 class="text-4xl font-bold text-slate-900">Journey</h3>
+            </div>
             
             <div class="space-y-20">
                 <div class="relative pl-10 border-l-2 border-blue-500">
@@ -380,6 +389,7 @@
             sections.forEach((section) => {
                 if (pageYOffset >= section.offsetTop - 100) { current = section.getAttribute("id"); }
             });
+
             navLinks.forEach((link) => {
                 link.classList.remove("active");
                 if (link.getAttribute("href").includes(current)) { link.classList.add("active"); }
