@@ -325,7 +325,7 @@
                     <div class="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-white border-4 border-orange-500"></div>
                     <span class="text-[10px] mono font-bold text-orange-600 uppercase">Phase 04</span>
                     <h4 class="text-xl font-bold text-slate-900 mt-2">First CPU: Harvard RISC Prototype</h4>
-                    <p class="text-sm text-slate-500 mt-3 mb-6 leading-relaxed">This prototype featured a hard Harvard split in memory, but I hit architectural walls: insufficient RAM, no subroutine support (SP), and a fixed memory layout. This discovery catalyzed the move to CISC.</p>
+                    <p class="text-sm text-slate-500 mt-3 mb-6 leading-relaxed">This prototype featured a hard Harvard split in memory, but I hit architectural walls: insufficient RAM, no subroutine support (SP), and a fixed memory layout. These limitations motivated a more capable architectural redesign.</p>
                     <div class="img-card"><img src="harvard_prototype.jpg" onclick="magnify(this)"></div>
                 </div>
 
@@ -333,7 +333,7 @@
                     <div class="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-white border-4 border-red-500"></div>
                     <span class="text-[10px] mono font-bold text-red-600 uppercase">Phase 05</span>
                     <h4 class="text-xl font-bold text-slate-900 mt-2">Hardware Acceleration</h4>
-                    <p class="text-sm text-slate-500 mt-3 mb-6 leading-relaxed">The Snake Console project shifted focus toward application-specific hardware, optimizing logic for real-time performance without processor overhead.</p>
+                    <p class="text-sm text-slate-500 mt-3 mb-6 leading-relaxed">The Snake Console shifted focus toward application-specific hardware, mapping a real workload directly onto low-level logic. Seeing the operations required by the workload helped inform the functionality of my later general-purpose CPU.</p>
                     <div class="img-card"><img src="snake_schematic.png" onclick="magnify(this)"></div>
                 </div>
 
@@ -341,7 +341,7 @@
                     <div class="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-white border-4 border-purple-500"></div>
                     <span class="text-[10px] mono font-bold text-purple-600 uppercase">Phase 06</span>
                     <h4 class="text-xl font-bold text-slate-900 mt-2">The CISC Architecture</h4>
-                    <p class="text-sm text-slate-500 mt-3 mb-6 leading-relaxed">A fully programmable 8-bit machine running at 250 kHz. By moving to a <strong>CISC-based microcoded design</strong>, I solved the Phase 04 limitations. This version features a 48-bit control word, Stack Pointer support, and a robust star-topology power grid across 40+ breadboards.</p>
+                    <p class="text-sm text-slate-500 mt-3 mb-6 leading-relaxed">A fully programmable 8-bit machine running at 250 kHz. I redesigned the earlier prototype into a more capable CISC-based microcoded architecture, addressing the limitations encountered in Phase 04. This version features a 48-bit control word, Stack Pointer support, and a robust star-topology power grid across 40+ breadboards.</p>
                     <div class="img-card"><img src="cpu.jpg" onclick="magnify(this)"></div>
                 </div>
 
